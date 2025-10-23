@@ -18,7 +18,11 @@ function deleteGrid() {
     columns.forEach(column => { column.remove() });
 }
 
-
+function resetGrid() {
+    let size = +prompt("Enter the size of the new grid.");
+    deleteGrid();
+    createGrid(size);
+}
 
 
 createGrid();

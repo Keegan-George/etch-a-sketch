@@ -8,11 +8,11 @@
     display: flex;
 }
 
-.square{
+.square {
     border: 1px solid black;
     padding: 10px;
 }
 
-.square:hover{
+.square:hover {
     background-color: lightgrey;
 }
