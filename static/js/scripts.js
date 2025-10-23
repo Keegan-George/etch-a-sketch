@@ -1,4 +1,3 @@
-
 function createGrid() {
     const size = 16;
     gridContainer = document.querySelector(".grid-container");
@@ -13,6 +12,5 @@ function createGrid() {
         }
     }
 }
-
 
 createGrid();
