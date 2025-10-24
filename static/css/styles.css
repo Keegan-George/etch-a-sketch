@@ -6,11 +6,12 @@
 
 .grid-container {
     display: flex;
+    max-width: 500px;
 }
 
 .square {
     border: 1px solid black;
-    padding: 10px;
+    padding: 5px;
 }
 
 .square:hover {
@@ -18,5 +19,5 @@
 }
 
 .square.enabled {
-    background-color: lightblue;
+    background-color: black;
 }
