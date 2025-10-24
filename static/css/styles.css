@@ -6,16 +6,15 @@
 
 .grid-container {
     display: flex;
-    max-width: 500px;
 }
 
 .square {
     border: 1px solid black;
-    padding: 5px;
+    padding: 3px;
 }
 
 .square:hover {
-    background-color: lightgrey;
+    background-color: black;
 }
 
 .square.enabled {
