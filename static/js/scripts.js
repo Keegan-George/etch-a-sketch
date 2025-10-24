@@ -45,6 +45,7 @@ function setupListeners() {
 
     gridContainer.addEventListener("mousedown", event => {
         canDraw = true;
+        event.target.classList.add("enabled");
     });
 
     gridContainer.addEventListener("mouseup", event => {
@@ -54,7 +55,6 @@ function setupListeners() {
     gridContainer.addEventListener("mouseover", event => {
         if (canDraw) {
             event.target.classList.add("enabled");
-            console.log(event.button)
         }
 
     });
