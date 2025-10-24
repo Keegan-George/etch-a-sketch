@@ -32,7 +32,13 @@ function deleteGrid() {
  * Deletes the previous grid and creates a new grid as per the user input. 
  */
 function resetGrid() {
-    let size = +prompt("Enter the size of the new grid.");
+    let size;
+
+    do {
+        size = +prompt("Enter the size of the new grid. Up to a maximum of 100.");
+    }
+    while (size < 1 || size > 100);
+
     deleteGrid();
     createGrid(size);
 }
