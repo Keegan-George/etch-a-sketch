@@ -16,3 +16,7 @@
 .square:hover {
     background-color: lightgrey;
 }
+
+.square.enabled {
+    background-color: lightblue;
+}

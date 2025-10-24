@@ -1,5 +1,9 @@
 function createGrid(size = 16) {
-    gridContainer = document.querySelector(".grid-container");
+    const gridContainer = document.querySelector(".grid-container");
+
+    gridContainer.addEventListener("mouseover", event => {
+        event.target.classList.add("enabled");
+    });
 
     for (let i = 0; i < size; i++) {
         column = document.createElement("div");
@@ -23,6 +27,5 @@ function resetGrid() {
     deleteGrid();
     createGrid(size);
 }
-
 
 createGrid();
