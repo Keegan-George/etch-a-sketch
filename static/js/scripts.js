@@ -1,7 +1,7 @@
 let canDraw = false;
 
 /**
- * Creates a grid of size n x n, where n is the argument passed to the function. 
+ * Creates a grid of size n x n, where n is the length of one side of the grid. 
  */
 function createGrid(n = 16) {
     const gridContainer = document.querySelector(".grid-container");
@@ -19,7 +19,7 @@ function createGrid(n = 16) {
 }
 
 /**
- * Deletes the grid from the screen
+ * Deletes the grid and removes it from the screen.
  */
 
 function deleteGrid() {
@@ -29,7 +29,7 @@ function deleteGrid() {
 
 /**
  * Prompts the user to enter the value of a new grid. 
- * Deletes the previous grid and creates a new one
+ * Deletes the previous grid and creates a new grid as per the user input. 
  */
 function resetGrid() {
     let size = +prompt("Enter the size of the new grid.");
@@ -38,7 +38,7 @@ function resetGrid() {
 }
 
 /**
- * Sets up the listeners for the grids. 
+ * Sets up the listeners for the grid. 
  */
 function setupListeners() {
     const gridContainer = document.querySelector(".grid-container");
