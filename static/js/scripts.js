@@ -3,7 +3,7 @@ let canDraw = false;
 /**
  * Creates a grid of size n x n, where n is the length of one side of the grid. 
  */
-function createGrid(n = 16) {
+function createGrid(n = 100) {
     const gridContainer = document.querySelector(".grid-container");
 
     for (let i = 0; i < n; i++) {
