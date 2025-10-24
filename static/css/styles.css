@@ -6,6 +6,7 @@
 
 .grid-container {
     display: flex;
+    margin: 10px;
 }
 
 .square {
@@ -19,4 +20,16 @@
 
 .square.enabled {
     background-color: black;
+}
+
+#reset-button {
+    margin: 10px;
+
+}
+
+.canvas {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
 }
