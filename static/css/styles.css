@@ -16,11 +16,8 @@
 }
 
 .square:hover {
-    background-color: black;
-}
-
-.square.enabled {
-    background-color: black;
+    background-color: yellow;
+    transform: scale(1.5);
 }
 
 #reset-button {

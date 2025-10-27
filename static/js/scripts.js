@@ -21,7 +21,6 @@ function createGrid(n = 100) {
 /**
  * Deletes the grid and removes it from the screen.
  */
-
 function deleteGrid() {
     columns = document.querySelectorAll(".column");
     columns.forEach(column => { column.remove() });
@@ -44,6 +43,21 @@ function resetGrid() {
 }
 
 /**
+ * Returns a random integer in the range of 0 to max.
+ */
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+
+/**
+ * Returns a randomly generated RGB color string.
+ */
+function getRandomRGBColor() {
+    return `rgb(${getRandomInt(255)},${getRandomInt(255)},${getRandomInt(255)})`;
+}
+
+/**
  * Sets up the listeners for the grid. 
  */
 function setupListeners() {
@@ -51,16 +65,16 @@ function setupListeners() {
 
     gridContainer.addEventListener("mousedown", event => {
         canDraw = true;
-        event.target.classList.add("enabled");
+        event.target.style.backgroundColor = getRandomRGBColor();
     });
 
-    gridContainer.addEventListener("mouseup", event => {
+    gridContainer.addEventListener("mouseup", () => {
         canDraw = false;
-    })
+    });
 
     gridContainer.addEventListener("mouseover", event => {
         if (canDraw) {
-            event.target.classList.add("enabled");
+            event.target.style.backgroundColor = getRandomRGBColor();
         }
 
     });
