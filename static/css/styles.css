@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: black;
+}
+
 .grid-container {
     display: flex;
     margin: 10px;
@@ -11,7 +15,7 @@
 }
 
 .square {
-    border: 1px solid black;
+    border: 1px solid gray;
     padding: 3px;
 }
 
