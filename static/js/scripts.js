@@ -34,7 +34,7 @@ function resetGrid() {
     let size;
 
     do {
-        size = +prompt("Enter the size of the new grid. Up to a maximum of 100.");
+        size = +prompt("Enter the size of the new grid. Up to a maximum of 100.", 100);
     }
     while (size < 1 || size > 100);
 
