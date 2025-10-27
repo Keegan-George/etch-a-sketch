@@ -54,7 +54,7 @@ function getRandomInt(max) {
  * Returns a randomly generated RGB color string.
  */
 function getRandomRGBColor() {
-    return `rgb(${getRandomInt(255)},${getRandomInt(255)},${getRandomInt(255)})`;
+    return `rgb(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)})`;
 }
 
 /**
