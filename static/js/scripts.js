@@ -58,6 +58,28 @@ function getRandomRGBColor() {
 }
 
 /**
+ * Returns true if the element that triggered the event has a background Color
+ */
+
+function hasBackgroundColor(event) {
+    return event.target.style.backgroundColor;
+}
+
+/**
+ * Return
+ */
+function darken(color) {
+    current_color = color.match(/\d+/g);
+    let [r, g, b] = current_color;
+    r = r * 0.9;
+    g = g * 0.9;
+    b = b * 0.9;
+
+    darkened_color = `rgb(${r},${g},${b})`;
+    return darkened_color;
+}
+
+/**
  * Sets up the listeners for the grid. 
  */
 function setupListeners() {
@@ -65,7 +87,20 @@ function setupListeners() {
 
     gridContainer.addEventListener("mousedown", event => {
         canDraw = true;
-        event.target.style.backgroundColor = getRandomRGBColor();
+
+        if (hasBackgroundColor(event)) {
+            current_color = event.target.style.backgroundColor;
+            console.log(`current color: ${current_color}`);
+
+            darkened_color = darken(current_color);
+
+            event.target.style.backgroundColor = darkened_color;
+            console.log(`darken color: ${event.target.style.backgroundColor}`);
+        }
+
+        else {
+            event.target.style.backgroundColor = getRandomRGBColor();
+        }
     });
 
     gridContainer.addEventListener("mouseup", () => {
@@ -74,9 +109,20 @@ function setupListeners() {
 
     gridContainer.addEventListener("mouseover", event => {
         if (canDraw) {
-            event.target.style.backgroundColor = getRandomRGBColor();
-        }
+            if (hasBackgroundColor(event)) {
+                current_color = event.target.style.backgroundColor;
+                console.log(`current color: ${current_color}`);
 
+                darkened_color = darken(current_color);
+
+                event.target.style.backgroundColor = darkened_color;
+                console.log(`darken color: ${event.target.style.backgroundColor}`);
+            }
+
+            else {
+                event.target.style.backgroundColor = getRandomRGBColor();
+            }
+        }
     });
 }
 
