@@ -4,8 +4,7 @@ createGrid();
 setupListeners();
 
 /**
- * Create a square grid of size n x n, where n is the number of squares that make up 
- * one side of the grid. 
+ * Create a square grid of size n x n, where n is the number of squares along one side. 
  */
 function createGrid(n = 100) {
     const gridContainer = document.querySelector(".grid-container");
