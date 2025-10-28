@@ -107,6 +107,34 @@ function darken(color, darkenRate) {
 }
 
 /**
+ * Applies a color to a square on the grid.
+ * If the square already has a background color, it will be darkened by a stored step size.
+ * Otherwise, a random color is applied and the darkening step size is initialized.
+
+ * @param {HTMLElement} square - The grid square that triggered the event.
+ */
+function applyColor(square) {
+    const backgroundColor = square.style.backgroundColor;
+
+    if (backgroundColor) {
+        console.log(`current color: ${backgroundColor}`);
+
+        const darkenRate = square.dataset.progressingDarkenStepSize;
+        const darkenedColor = darken(backgroundColor, darkenRate);
+        console.log(`darken color: ${darkenedColor}`);
+
+        square.style.backgroundColor = darkenedColor;
+        console.log(`darken color: ${square.style.backgroundColor}`);
+    }
+
+    else {
+        const color = getRandomRGBColor();
+        square.style.backgroundColor = color;
+        square.dataset.progressingDarkenStepSize = getDarkeningRate(color);
+    }
+}
+
+/**
  * Initializes the mouse listeners for the grid. 
  */
 function initializeListeners() {
@@ -114,25 +142,8 @@ function initializeListeners() {
 
     gridContainer.addEventListener("mousedown", event => {
         canDraw = true;
-
-        const backgroundColor = event.target.style.backgroundColor;
-
-        if (backgroundColor) {
-            console.log(`current color: ${backgroundColor}`);
-
-            const darkenRate = event.target.dataset.progressingDarkenStepSize;
-            const darkenedColor = darken(backgroundColor, darkenRate);
-            console.log(`darken color: ${darkenedColor}`);
-
-            event.target.style.backgroundColor = darkenedColor;
-            console.log(`darken color: ${event.target.style.backgroundColor}`);
-        }
-
-        else {
-            const color = getRandomRGBColor();
-            event.target.style.backgroundColor = color;
-            event.target.dataset.progressingDarkenStepSize = getDarkeningRate(color);
-        }
+        const square = event.target;
+        applyColor(square);
     });
 
     gridContainer.addEventListener("mouseup", () => {
@@ -141,24 +152,8 @@ function initializeListeners() {
 
     gridContainer.addEventListener("mouseover", event => {
         if (canDraw) {
-            const backgroundColor = event.target.style.backgroundColor;
-
-            if (backgroundColor) {
-                console.log(`current color: ${backgroundColor}`);
-
-                const darkenRate = event.target.dataset.progressingDarkenStepSize;
-                const darkenedColor = darken(backgroundColor, darkenRate);
-                console.log(`darken color: ${darkenedColor}`);
-
-                event.target.style.backgroundColor = darkenedColor;
-                console.log(`darken color: ${event.target.style.backgroundColor}`);
-        }
-
-            else {
-                const color = getRandomRGBColor();
-                event.target.style.backgroundColor = color;
-                event.target.dataset.progressingDarkenStepSize = getDarkeningRate(color);
-            }
+            const square = event.target;
+            applyColor(square);
         }
     });
 }
