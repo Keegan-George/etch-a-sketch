@@ -62,10 +62,14 @@ function getRandomInt(max) {
 }
 
 /**
- * Returns a randomly generated RGB color string.
+ * Returns a randomly generated RGB color string in the format 'rgb(r,g,b)',
+ * where r, g, and b are colors between 0 and 255 inclusive. 
  */
 function getRandomRGBColor() {
-    return `rgb(${getRandomInt(256)},${getRandomInt(256)},${getRandomInt(256)})`;
+    r = getRandomInt(255);
+    g = getRandomInt(255);
+    b = getRandomInt(255);
+    return `rgb(${r}, ${g}, ${b})`;
 }
 
 /**
