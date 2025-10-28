@@ -23,7 +23,7 @@ function createGrid(n = 100) {
 }
 
 /**
- * Deletes the grid and removes it from the screen.
+ * Remove the grid from the DOM.
  */
 function deleteGrid() {
     columns = document.querySelectorAll(".column");
