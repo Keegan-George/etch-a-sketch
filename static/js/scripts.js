@@ -94,13 +94,16 @@ function getDarkeningRate(color) {
 }
 
 /**
- * Return
+ * Returns an rgb color string reduced by the specified amount.
+ * 
+ *  @param {string} color - An RGB color string in the format 'rgb(r, g, b)'.
+ *  @param {number} darkenRate - The amount by which each RGB component will be reduced.
+ *  @returns {string} - A new RGB string with darkened values.
  */
-function darken(color, amount) {
-    current_color = color.match(/\d+/g);
-    darkened_color = current_color.map(n => +n - amount);
-    let [r, g, b] = darkened_color;
-    return `rgb(${r},${g},${b})`;
+function darken(color, darkenRate) {
+    const rgbValues = color.match(/\d+/g).map(n => Math.max(0, +n - darkenRate));
+    const [r, g, b] = rgbValues;
+    return `rgb(${r}, ${g}, ${b})`;
 }
 
 /**
