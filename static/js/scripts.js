@@ -55,10 +55,10 @@ function resetGrid() {
 }
 
 /**
- * Returns a random integer in the range of 0 to max.
+ * Returns a random integer in the range from 0 to max, inclusive. 
  */
 function getRandomInt(max) {
-    return Math.floor(Math.random() * max);
+    return Math.floor(Math.random() * (max + 1));
 }
 
 /**
