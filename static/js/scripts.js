@@ -73,21 +73,17 @@ function getRandomRGBColor() {
 }
 
 /**
- * Returns true if the element that triggered the event has a background Color
- */
-
-function hasBackgroundColor(event) {
-    return event.target.style.backgroundColor;
-}
-
-/**
+ * Returns an integer representing how much the background is darkened on each click,
+ * based on the brightest RGB component of the input color.
  * 
+ * @param {string} color - An RGB color string in the format 'rgb(r, g, b)'.
+ * @returns {number} - The darkening rate (1–26).
  */
 function getDarkeningRate(color) {
-    current_color = color.match(/\d+/g);
-    values = current_color.map(n => +n);
-    max_value = Math.max(...values);
-    return Math.ceil(max_value / 10);
+    const rgbValues = color.match(/\d+/g).map(n => +n);
+
+    const maxValue = Math.max(...rgbValues);
+    return Math.ceil(maxValue / 10);
 }
 
 /**
