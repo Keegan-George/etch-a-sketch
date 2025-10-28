@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+body {
+    background: #e3d9ca;
+}
+
 .grid-container {
     display: flex;
     margin: 10px;
