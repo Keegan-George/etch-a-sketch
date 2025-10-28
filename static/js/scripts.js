@@ -30,7 +30,7 @@ function deleteGrid() {
 }
 
 /**
-* Prompts the user to enter a valid grid size between 1 and 100.
+* Prompts the user to enter a valid grid size between min and max.
 - Repeats the prompt until a valid input is provided.
 - Upon receiving valid input, deletes the existing grid and creates a new one with the specified size.
  */
@@ -38,15 +38,17 @@ function resetGrid() {
     const min = 1;
     const max = 100;
     let size;
-    
-    do {
-        size = +prompt("Enter the size of the new grid. Up to a maximum of 100.", 100);
 
-        if (!size){
-            return;    
+    do {
+        input = prompt(`Enter the size of the new grid (${min} - ${max}):`, 100);
+
+        if (input === null) { //cancelled
+            return;
         }
+
+        size = +input;
     }
-    while (size < min || size > max);
+    while (isNaN(size) || size < min || size > max);
 
     deleteGrid();
     createGrid(size);
