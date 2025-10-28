@@ -27,7 +27,7 @@ function createGrid(n = 100) {
  * Remove the grid from the DOM.
  */
 function deleteGrid() {
-    columns = document.querySelectorAll(".column");
+    const columns = document.querySelectorAll(".column");
     columns.forEach(column => { column.remove() });
 }
 
@@ -42,7 +42,7 @@ function resetGrid() {
     let size;
 
     do {
-        input = prompt(`Enter the size of the new grid (${min} - ${max}):`, 100);
+        const input = prompt(`Enter the size of the new grid (${min} - ${max}):`, 100);
 
         if (input === null) { //cancelled
             return;
@@ -57,7 +57,10 @@ function resetGrid() {
 }
 
 /**
- * Returns a random integer in the range from 0 to max, inclusive. 
+ * Returns a random integer in the range from 0 to max, inclusive.
+ * 
+ * @param {number} max - The maximum value (inclusive) for the random integer.
+ * @returns {number} A random integer from 0 to max inclusive.
  */
 function getRandomInt(max) {
     return Math.floor(Math.random() * (max + 1));
@@ -66,11 +69,13 @@ function getRandomInt(max) {
 /**
  * Returns a randomly generated RGB color string in the format 'rgb(r,g,b)',
  * where r, g, and b are colors between 0 and 255 inclusive. 
+ * 
+ * @returns - An RGB color string in the format 'rgb(r, g, b)'.
  */
 function getRandomRGBColor() {
-    r = getRandomInt(255);
-    g = getRandomInt(255);
-    b = getRandomInt(255);
+    const r = getRandomInt(255);
+    const g = getRandomInt(255);
+    const b = getRandomInt(255);
     return `rgb(${r}, ${g}, ${b})`;
 }
 
