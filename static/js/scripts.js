@@ -31,16 +31,23 @@ function deleteGrid() {
 }
 
 /**
- * Prompts the user to enter the value of a new grid. 
- * Deletes the previous grid and creates a new grid as per the user input. 
+* Prompts the user to enter a valid grid size between 1 and 100.
+- Repeats the prompt until a valid input is provided.
+- Upon receiving valid input, deletes the existing grid and creates a new one with the specified size.
  */
 function resetGrid() {
+    const min = 1;
+    const max = 100;
     let size;
-
+    
     do {
         size = +prompt("Enter the size of the new grid. Up to a maximum of 100.", 100);
+
+        if (!size){
+            return;    
+        }
     }
-    while (size < 1 || size > 100);
+    while (size < min || size > max);
 
     deleteGrid();
     createGrid(size);
