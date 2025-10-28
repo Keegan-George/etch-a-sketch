@@ -4,20 +4,22 @@ createGrid();
 setupListeners();
 
 /**
- * Create a square grid of size n x n, where n is the number of squares along one side. 
+ * Create a square grid of size n x n, where n is the number of squares along one side.
+ * 
+ * @param {number} n - The number of squares per row and column. 
  */
 function createGrid(n = 100) {
     const gridContainer = document.querySelector(".grid-container");
 
     for (let i = 0; i < n; i++) {
-        column = document.createElement("div");
+        const column = document.createElement("div");
         column.classList.add("column");
         for (let j = 0; j < n; j++) {
-            square = document.createElement("div");
+            const square = document.createElement("div");
             square.classList.add("square");
             column.appendChild(square);
-            gridContainer.appendChild(column);
         }
+        gridContainer.appendChild(column);
     }
 }
 
