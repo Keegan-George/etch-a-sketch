@@ -142,8 +142,10 @@ function initializeListeners() {
 
     gridContainer.addEventListener("mousedown", event => {
         canDraw = true;
+
         const square = event.target;
-        applyColor(square);
+
+        if (event.target.classList.contains("square")) { applyColor(square); };
     });
 
     gridContainer.addEventListener("mouseup", () => {
@@ -153,8 +155,8 @@ function initializeListeners() {
     gridContainer.addEventListener("mouseover", event => {
         if (canDraw) {
             const square = event.target;
-            applyColor(square);
+
+            if (event.target.classList.contains("square")) { applyColor(square); };
         }
     });
 }
-
