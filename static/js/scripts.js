@@ -1,7 +1,7 @@
 let canDraw = false;
 
 createGrid();
-setupListeners();
+initializeListeners();
 
 /**
  * Create a square grid of size n x n, where n is the number of squares along one side.
@@ -107,9 +107,9 @@ function darken(color, darkenRate) {
 }
 
 /**
- * Sets up the listeners for the grid. 
+ * Initializes the mouse listeners for the grid. 
  */
-function setupListeners() {
+function initializeListeners() {
     const gridContainer = document.querySelector(".grid-container");
 
     gridContainer.addEventListener("mousedown", event => {
@@ -118,18 +118,18 @@ function setupListeners() {
         const backgroundColor = event.target.style.backgroundColor;
 
         if (backgroundColor) {
-            current_color = event.target.style.backgroundColor;
-            console.log(`current color: ${current_color}`);
-            darken_rate = event.target.dataset.progressingDarkenStepSize;
-            darkened_color = darken(current_color, darken_rate);
-            console.log(`darken color: ${darkened_color}`);
+            console.log(`current color: ${backgroundColor}`);
 
-            event.target.style.backgroundColor = darkened_color;
+            const darkenRate = event.target.dataset.progressingDarkenStepSize;
+            const darkenedColor = darken(backgroundColor, darkenRate);
+            console.log(`darken color: ${darkenedColor}`);
+
+            event.target.style.backgroundColor = darkenedColor;
             console.log(`darken color: ${event.target.style.backgroundColor}`);
         }
 
         else {
-            color = getRandomRGBColor();
+            const color = getRandomRGBColor();
             event.target.style.backgroundColor = color;
             event.target.dataset.progressingDarkenStepSize = getDarkeningRate(color);
         }
@@ -144,18 +144,18 @@ function setupListeners() {
             const backgroundColor = event.target.style.backgroundColor;
 
             if (backgroundColor) {
-                current_color = event.target.style.backgroundColor;
-                console.log(`current color: ${current_color}`);
-                darken_rate = event.target.dataset.progressingDarkenStepSize;
-                darkened_color = darken(current_color, darken_rate);
-                console.log(`darken color: ${darkened_color}`);
+                console.log(`current color: ${backgroundColor}`);
 
-                event.target.style.backgroundColor = darkened_color;
+                const darkenRate = event.target.dataset.progressingDarkenStepSize;
+                const darkenedColor = darken(backgroundColor, darkenRate);
+                console.log(`darken color: ${darkenedColor}`);
+
+                event.target.style.backgroundColor = darkenedColor;
                 console.log(`darken color: ${event.target.style.backgroundColor}`);
-            }
+        }
 
             else {
-                color = getRandomRGBColor();
+                const color = getRandomRGBColor();
                 event.target.style.backgroundColor = color;
                 event.target.dataset.progressingDarkenStepSize = getDarkeningRate(color);
             }
