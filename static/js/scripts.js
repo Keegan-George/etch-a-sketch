@@ -1,7 +1,11 @@
 let canDraw = false;
 
+createGrid();
+setupListeners();
+
 /**
- * Creates a grid of size n x n, where n is the length of one side of the grid. 
+ * Create a square grid of size n x n, where n is the number of squares that make up 
+ * one side of the grid. 
  */
 function createGrid(n = 100) {
     const gridContainer = document.querySelector(".grid-container");
@@ -141,5 +145,3 @@ function setupListeners() {
     });
 }
 
-createGrid();
-setupListeners();
